@@ -1,13 +1,22 @@
 <button routerLink="/">Go Home</button>
 <hr>
-<form>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" placeholder="Enter Employees First Name"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" placeholder="Enter Employees Last Name"><br>
-    <label for="dob">DOB :</label><br>
-    <input type="date" id="dob" name="dob" ><br> 
-    <label for="hdate">Hire Date:</label><br>
-    <input type="date" id="hdate" name="hdate" ><br><br>
-    <input type="submit" value="Submit">
-</form>
+<div *ngIf="!submitted">
+    <form>
+        <label for="fname" >First name:</label><br>
+        <input type="text" [(ngModel)]="employee.first_name" id="fname" name="fname" placeholder="Enter Employees First Name"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" [(ngModel)]="employee.last_name" id="lname" name="lname" placeholder="Enter Employees Last Name"><br>
+        <label for="dob">DOB :</label><br>
+        <input type="date" [(ngModel)]="employee.dob" id="dob" name="dob" ><br> 
+        <label for="hireDate">Hire Date:</label><br>
+        <input type="date" [(ngModel)]="employee.hireDate" id="hireDate" name="hireDate" ><br><br>
+        <input type="submit" (click)="saveEmployee()" value="Submit">
+    </form>
+
+</div>
+
+<div *ngIf="submitted">
+    <h3>Employee Data Submitted Successfully!!!</h3>
+    <button (click)="clearData()">Add Another Employee</button>
+</div>
+
