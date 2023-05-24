@@ -1,0 +1,18 @@
+<div *ngIf="currentEmployee.id">
+    <form>
+        <label for="first_name">First Name</label><br>
+        <input type="text" name="first_name" id="first_name" [(ngModel)]="currentEmployee.first_name"><br><br>
+        <label for="first_name">Last Name</label><br>
+        <input type="text" name="last_name" id="last_name"[(ngModel)]="currentEmployee.last_name"><br><br>
+        <label for="dob">Date of Birth</label><br>
+        <input type="date" name="dob" id="dob" [(ngModel)]="currentEmployee.dob"><br><br>
+        <label for="hireDate">Hire Date</label><br>
+        <input type="date" name="hireDate" id="hireDate" [(ngModel)]="currentEmployee.hireDate"><br><br>
+        <button (click)="upDateEmployee()">Update</button>
+    </form>
+</div>
+
+
+<div *ngIf="!currentEmployee.id">
+    <p>Unable to access Employee</p>
+</div>

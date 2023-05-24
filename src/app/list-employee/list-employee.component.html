@@ -1,20 +1,23 @@
 <p>Human Resource Management</p>
 <button routerLink="/add">Add Employee</button>
-<table>
+<table >
     <tr>
-      <th>Id</th>
+      <th> #</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>DOB</th>
+      <th>DOB</th>&nbsp;&nbsp;&nbsp;
       <th>Hire Date</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Maria</td>
-      <td>Anders</td>
-      <td>06-21-1995</td>
-      <td>09-24-2021</td>
-    </tr>
+    <tbody *ngFor="let employee of employees;let i = index">
+      <tr >
+        <td>{{i+1}}</td>
+        <td>{{employee.first_name}}</td>
+        <td>{{employee.last_name}}</td>
+        <td>{{employee.dob}}</td>&nbsp;
+        <td>{{employee.hireDate}}</td> &nbsp;&nbsp;&nbsp;&nbsp;
+        <td><button routerLink="/edit/{{employee.id}}">edit</button></td>
+        
+      </tr>
     
-    
+    </tbody> 
   </table>

@@ -7,12 +7,16 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EditTutorialComponent } from './edit-tutorial/edit-tutorial.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AddEmployeeComponent,
-    ListEmployeeComponent
+    ListEmployeeComponent,
+    EditTutorialComponent
+    
   ],
   imports: [
     BrowserModule,
