@@ -29,4 +29,8 @@ export class EmployeeServiceService {
     return this.http.post(baseUrl,data);
   }
 
+  deleteById(id: any): Observable<any>{
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../model/employee.model';
 import { EmployeeServiceService } from '../employee-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-employee',
@@ -9,7 +10,7 @@ import { EmployeeServiceService } from '../employee-service.service';
 })
 export class ListEmployeeComponent implements OnInit{
 
-constructor(private employeeService: EmployeeServiceService){}
+constructor(private employeeService: EmployeeServiceService, private router: Router, private route: ActivatedRoute){}
 
 
 employees?: Employee[];
@@ -24,6 +25,8 @@ currentEmployee: Employee = {
 
 }
 
+
+
 ngOnInit(): void {
     this.getAllEmployees()
 }
@@ -33,6 +36,31 @@ getAllEmployees():void{
     next: (data)=>{
       this.employees = data
       console.log(data)
+    },
+    error: (e)=>console.log(e)
+  })
+}
+
+// getEmployeeById(id: any): void{
+//   this.employeeService.get(id).subscribe({
+//     next: (data)=>{
+//         this.currentEmployee = data;
+//         console.log(data);
+//     },
+//     error: (e)=>console.log(e)
+//   }
+    
+//   );
+// }
+
+deleteById(id: any): void{
+  
+  
+  this.employeeService.deleteById(id).subscribe({
+    next: (data)=>{
+      console.log("delete");
+      this.getAllEmployees();
+      
     },
     error: (e)=>console.log(e)
   })

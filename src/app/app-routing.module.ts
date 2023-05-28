@@ -10,6 +10,7 @@ const routes: Routes = [
   {path:"humanResource",component:ListEmployeeComponent},
   {path:"add",component:AddEmployeeComponent},
   {path:"edit/:id",component:EditTutorialComponent}
+  
 ];
 
 @NgModule({

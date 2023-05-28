@@ -17,6 +17,8 @@
         <td>{{employee.hireDate}}</td> &nbsp;&nbsp;&nbsp;&nbsp;
         <td><button routerLink="/edit/{{employee.id}}">edit</button></td>
         
+        <td><button (click)="deleteById(employee.id)">Delete</button></td>
+        
       </tr>
     
     </tbody> 
