@@ -25,6 +25,16 @@ currentEmployee: Employee = {
 
 }
 
+searchEmployeeData: string = "";
+ 
+searchEmployee: Employee = {
+  first_name: '',
+  last_name: '',
+  dob: new Date,
+  hireDate: new Date
+}
+
+searchBoolean: Boolean = false;
 
 
 ngOnInit(): void {
@@ -66,7 +76,21 @@ deleteById(id: any): void{
   })
 }
 
-
+searchTheEmployee(): void{
+  const formData = this.searchEmployeeData;
+  
+  this.employeeService.searchByName(formData).subscribe({
+    next: (data)=>{
+      console.log(data)
+      this.searchEmployee = data;
+      this.searchBoolean = true;
+    },
+    error: (e)=>{
+      console.log(e)
+    }
+  })
+  
+}
   
 
 }

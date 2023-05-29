@@ -33,4 +33,8 @@ export class EmployeeServiceService {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 
+  searchByName(name: any):Observable<any>{
+    return this.http.get(`${baseUrl}/search/${name}`);
+  }
+
 }

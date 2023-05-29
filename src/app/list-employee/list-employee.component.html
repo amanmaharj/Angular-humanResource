@@ -1,11 +1,37 @@
 <p>Human Resource Management</p>
 <button routerLink="/add">Add Employee</button>
+<form >
+  <input type="text" placeholder="Enter employee Name" [(ngModel)]="searchEmployeeData"  id="searchEmp" name="searchEmp">
+  <button type="submit" (click)="searchTheEmployee()">GO!</button>
+</form>
+<table *ngIf="searchBoolean">
+  
+    <tr>
+      
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>DOB</th>&nbsp;&nbsp;
+      <th>Hire Date</th>
+    </tr>
+    <tbody >
+      <tr>
+        
+        <td>{{searchEmployee.first_name}}</td>
+        <td>{{searchEmployee.last_name}}</td>
+        <td>{{searchEmployee.dob}}</td>&nbsp;&nbsp;
+        <td>{{searchEmployee.hireDate}}</td>
+      </tr>
+    </tbody>
+     
+</table>
+
+<hr>
 <table >
     <tr>
       <th> #</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>DOB</th>&nbsp;&nbsp;&nbsp;
+      <th>DOB</th>&nbsp;
       <th>Hire Date</th>
     </tr>
     <tbody *ngFor="let employee of employees;let i = index">
